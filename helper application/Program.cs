@@ -22,11 +22,16 @@ namespace helper_application
                 case "D1":
                     for (int i = 0; i < sav.Length; i++)
                     {
-                        sav[i] = (hexToInt("4080") + i).ToString();
+                        sav[i] = bin[(hexToInt("4080") + i)];
                     }
                     File.WriteAllBytes("conv.sav", GetBytes(sav));
                     break;
                 case "D2":
+                    for (int i = 0; i < sav.Length; i++)
+                    {
+                        bin[(hexToInt("4080") + i)] = sav[i];
+                    }
+                    File.WriteAllBytes("new-data_008_0000.bin", GetBytes(bin));
                     break;
             }
 
